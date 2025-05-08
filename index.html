@@ -798,38 +798,50 @@
     let username = localStorage.getItem("username") || "";
 
     function openChat() {
-      document.getElementById("chatBox").style.display = "block";
-    }
+  closeAllPopups(); // Close other popups
+  document.getElementById("chatBox").style.display = "block";
+}
 
-    function closeChat() {
-      document.getElementById("chatBox").style.display = "none";
-    }
+function openMovies() {
+  closeAllPopups(); // Close other popups
+  document.getElementById("movieBox").style.display = "block";
+}
 
-    function openMovies() {
-      document.getElementById("movieBox").style.display = "block";
-    }
+function openUnblocker() {
+  closeAllPopups(); // Close other popups
+  document.getElementById("unblockerBox").style.display = "block";
+}
 
-    function closeMovies() {
-      document.getElementById("movieBox").style.display = "none";
-    }
+function openPDF() {
+  closeAllPopups(); // Close other popups
+  document.getElementById("pdfViewer").src = "./LINQ_Connect_-_Making_Schools_Stronger.pdf";
+  document.getElementById("pdfBox").style.display = "block";
+}
 
-    function openUnblocker() {
-      document.getElementById("unblockerBox").style.display = "block";
-    }
+function closeChat() {
+  document.getElementById("chatBox").style.display = "none";
+}
 
-    function closeUnblocker() {
-      document.getElementById("unblockerBox").style.display = "none";
-    }
+function closeMovies() {
+  document.getElementById("movieBox").style.display = "none";
+}
 
-    function openPDF() {
-      document.getElementById("pdfViewer").src = "./LINQ_Connect_-_Making_Schools_Stronger.pdf";
-      document.getElementById("pdfBox").style.display = "block";
-    }
+function closeUnblocker() {
+  document.getElementById("unblockerBox").style.display = "none";
+}
 
-    function closePDF() {
-      document.getElementById("pdfViewer").src = "";
-      document.getElementById("pdfBox").style.display = "none";
-    }
+function closePDF() {
+  document.getElementById("pdfViewer").src = ""; // Clear the iframe source
+  document.getElementById("pdfBox").style.display = "none";
+}
+
+// Helper function to close all popups
+function closeAllPopups() {
+  const popups = document.getElementsByClassName("popup-box");
+  for (let i = 0; i < popups.length; i++) {
+    popups[i].style.display = "none";
+  }
+}
 
     function chooseRandomLink() {
       // List of links
